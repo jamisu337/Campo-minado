@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campo Minado</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        canvas { margin-top: 20px; cursor: pointer; }
+        button { margin: 5px; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Campo Minado</h1>
+    <button onclick="setDifficulty(10, 10, 10)">Fácil</button>
+    <button onclick="setDifficulty(15, 15, 30)">Médio</button>
+    <button onclick="setDifficulty(20, 20, 60)">Difícil</button>
+    <button onclick="modoNerd()">Modo Nerd 🤓 (beta)</button>
+    <br>
+    <canvas id="jogo" width="511" height="511"></canvas>
+    <script type="text/javascript" src="js.js"></script>
+</body>
+</html>
