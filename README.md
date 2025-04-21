@@ -22,8 +22,15 @@ Este é um projeto de **Campo Minado (Minesweeper)** feito com **JavaScript puro
 
 ---
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a6751687-2deb-403a-9803-d79d9908ff33" width="44%" />
+  <img src="https://github.com/user-attachments/assets/1466298b-f3c5-4221-9495-2f57f3f235c6" width="46%" />
+</p>
+
+
 ## 📦 Como usar
 
 1. Clone o repositório:
 ```bash
 campo-minado-khaki.vercel.app
+
