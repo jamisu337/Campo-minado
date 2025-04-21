@@ -6,6 +6,8 @@ let nTilesX = 10;
 let nTilesY = 10;
 let nBombs = 10;
 let tileSize = 51;
+let hoveredTile = null;
+
 
 class Tile {
     constructor(i, j) {
@@ -29,11 +31,11 @@ function setDifficulty(x, y, bombs) {
 }
 
 function modoNerd() {
-    let x = parseInt(prompt("Casas na horizontal (mínimo 2):"));
-    let y = parseInt(prompt("Casas na vertical (mínimo 2):"));
+    let x = parseInt(prompt("Casas na horizontal (entre 2 e 30):"));
+    let y = parseInt(prompt("Casas na vertical (entre 2 e 30):"));
     let b = parseInt(prompt("Quantidade de bombas (mínimo 1):"));
 
-    if (isNaN(x) || isNaN(y) || isNaN(b) || x < 2 || y < 2 || b < 1 || b >= x * y) {
+    if (isNaN(x) || isNaN(y) || isNaN(b) || x < 2 || y < 2 || b < 1 || b >= x * y || x > 30 || y > 30) {
         alert("Valores inválidos.");
         return;
     }
@@ -90,22 +92,32 @@ function drawTile(tile) {
     let y = tile.j * tileSize + 1;
 
     if (tile.isOpen) {
-        ctx.fillStyle = tile.isBomb ? "#ff0000" : "#999999";
+        ctx.fillStyle = tile.isBomb ? "#ff4757" : "#444"; // fundo da bomba , fundo do tile aberto
         ctx.fillRect(x, y, tileSize - 1, tileSize - 1);
-        if (!tile.isBomb && tile.bombsAround) {
+        
+        if (tile.isBomb) {
+            ctx.font = `${tileSize * 0.8}px Arial`;
+            ctx.textAlign = "center";
             ctx.fillStyle = "red";
+            ctx.fillText("💣", x + tileSize / 2, y + tileSize * 0.8);
+        }
+
+        if (!tile.isBomb && tile.bombsAround) {
+            ctx.fillStyle = "#ff4757"; // numero
             ctx.font = `${tileSize * 0.6}px Arial`;
             ctx.textAlign = "center";
             ctx.fillText(tile.bombsAround, x + tileSize / 2, y + tileSize * 0.75);
         }
+
     } else {
-        ctx.fillStyle = tile.marked ? "#3399ff" : "#aaaaaa"; // azul se marcado
+        ctx.fillStyle = tile.marked ? "#999" : "#aaaaaa"; // bandeira , tile fechado
         ctx.fillRect(x, y, tileSize - 1, tileSize - 1);
+
         if (tile.marked) {
-            ctx.fillStyle = "white";
+            // ctx.fillStyle = "white"; // cor da bandeira
             ctx.font = `${tileSize * 0.6}px Arial`;
             ctx.textAlign = "center";
-            ctx.fillText("P", x + tileSize / 2, y + tileSize * 0.75);
+            ctx.fillText("🚩", x + tileSize / 2, y + tileSize * 0.75);
         }
     }
 }
@@ -181,6 +193,5 @@ canvas.addEventListener("click", e => {
 
     draw();
 });
-
 
 setDifficulty(10, 10, 10); // inicia no modo fácil por padrão
