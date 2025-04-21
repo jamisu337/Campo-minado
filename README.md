@@ -16,7 +16,7 @@ Este é um projeto de **Campo Minado (Minesweeper)** feito com **JavaScript puro
 ## 🛠 Tecnologias Utilizadas
 
 - HTML5
-- JavaScript (Vanilla)
+- JavaScript
 - Canvas API
 - CSS3
 
@@ -26,4 +26,4 @@ Este é um projeto de **Campo Minado (Minesweeper)** feito com **JavaScript puro
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/campo-minado.git
+campo-minado-khaki.vercel.app
